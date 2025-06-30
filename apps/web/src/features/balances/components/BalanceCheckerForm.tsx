@@ -7,6 +7,7 @@ import { selectChains } from '../../chains/slices/chains-slice'
 import Input from '../../../forms/components/Input';
 import Select from '../../../forms/components/Select';
 import SubmitButton from '../../../forms/components/SubmitButton';
+import { getBalance } from '../slices/balance-slice';
 import "../styles/balance-checker-form.scss"
 
 interface FormValues {
@@ -38,6 +39,10 @@ export default function FormElements() {
   }, [])
 
   const onSubmit = (values: FormValues) => {
+    dispatch(getBalance({
+      chainId: values.selectOption,
+      contractAddress: values.textInput,
+    }))
   };
 
 

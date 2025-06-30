@@ -36,7 +36,6 @@ export const chainsSlice = createSlice({
     },
     extraReducers: (builder) => {
         builder.addCase(getChains.fulfilled, (state: ChainsState, action: PayloadAction<Chain[]>) => {
-            console.log("Doso Chain", action.payload);
             state.chains = action.payload;
         })
         builder.addCase(getChains.rejected, (state: ChainsState) => {
