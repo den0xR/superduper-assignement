@@ -3,11 +3,12 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
+    "start": "npm run dev:web & npm run dev:api",
     "dev:web": "npm --workspace=apps/web run dev",
     "dev:api": "npm --workspace=apps/api run dev",
     "dev:init": "npm --workspace=apps/api run init-dev",
     "drop-db": "npm --workspace=apps/api run drop-db",
-    "test:api": "npm --workspace=apps/api run test"
+    "test": "npm --workspace=apps/api run test"
   },
   "keywords": [],
   "author": "",

@@ -1,8 +1,8 @@
-### Common
+# Common
 node_modules
 .env
 
-### WEB 
+# WEB 
 # Logs
 logs
 *.log
