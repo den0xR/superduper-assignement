@@ -6,6 +6,7 @@ const ERC_20_ABI = [
     "function balanceOf(address) view returns (uint)",
     "function decimals() view returns (uint8)",
     "function symbol() view returns (string)",
+    "function name() view returns (string)",
 ];
 
 const BalanceService = {
@@ -16,11 +17,13 @@ const BalanceService = {
             const balance = await contract.balanceOf(walletAddress);
             const decimals = await contract.decimals();
             const symbol = await contract.symbol();
+            const name = await contract.name();
 
             return {
                 balance,
                 decimals,
                 symbol,
+                name,
             }
         } catch (e) {
             throw new Error("Contract not found");
@@ -35,6 +38,7 @@ const BalanceService = {
                 balance,
                 decimals,
                 symbol,
+                name,
             } = await BalanceService.getContractData(walletAddress, chainIdNumber, contractAddress, rpcUrl);
 
 
@@ -48,6 +52,7 @@ const BalanceService = {
                 balance: balance.toString(),
                 decimals: decimals.toString(),
                 symbol,
+                name,
             }
         } catch (error) {
             throw error;

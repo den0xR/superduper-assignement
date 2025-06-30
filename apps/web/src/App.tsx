@@ -6,14 +6,18 @@ import './styles.scss';
 
 function App() {
   return (
-    <>
+    <div className="app">
       <Auth />
-      <div className="card">
-        <h2>Token Balance Checker</h2>
-        <BalanceCheckerForm />
+      <div className="main">
+        <div className="card">
+          <h2 className="card__heading">Token Balance Checker</h2>
+          <p className="card__subheading">Enter your wallet or contract address below to quickly check the current balance of your tokens.</p>
+          <BalanceCheckerForm />
+        </div>
         <BalanceDisplay />
       </div>
-    </>
+    </div>
+
   )
 }
 

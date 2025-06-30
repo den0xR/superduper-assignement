@@ -8,4 +8,5 @@ export interface BalanceResponseBody {
     balance: string;
     decimals: string;
     symbol: string;
+    name: string;
 };

@@ -7,6 +7,7 @@ interface BalancesState {
     value: string | null;
     decimals: string | null;
     symbol: string | null;
+    name: string | null;
     status: 'idle' | 'loading' | 'failed';
     error: string | null;
 }
@@ -15,6 +16,7 @@ const initialState: BalancesState = {
     value: null,
     decimals: null,
     symbol: null,
+    name: null,
     status: 'idle',
     error: null
 }
@@ -28,6 +30,7 @@ export interface BalanceResponseBody {
     balance: string;
     decimals: string;
     symbol: string;
+    name: string;
 }
 
 export const getBalance = createAsyncThunk<BalanceResponseBody, GetBalanceParams>(
@@ -64,6 +67,7 @@ export const balancesSlice = createSlice({
             state.value = action.payload.balance;
             state.decimals = action.payload.decimals;
             state.symbol = action.payload.symbol;
+            state.name = action.payload.name;
             state.status = 'idle';
             state.error = null;
         })

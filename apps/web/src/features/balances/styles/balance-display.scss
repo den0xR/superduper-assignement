@@ -1,5 +1,20 @@
 .balance-display {
+    .fields-container {
+        span {
+            transition: filter 0.3s ease-in-out;
+            display: inline-block;
+
+            &.loading {
+                filter: blur(4px);
+                pointer-events: none;
+            }
+        }
+    }
+    width: 50%;
     display: flex;
     flex-direction: column;
     margin-top: 2rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    background-color: #ffffff;
+    padding: 1rem;
 }

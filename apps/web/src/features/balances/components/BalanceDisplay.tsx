@@ -9,24 +9,32 @@ function BalanceDisplay() {
     const status = useAppSelector(selectBalanceStatus);
     const error = useAppSelector(selectBalanceError);
 
+
+    const symbol = balance?.symbol;
+    const decimals = balance?.decimals;
+    const value = balance?.value;
+    const name = balance?.name;
+
     return (
-        <>
-            {balance !== null && balance.value !== null && balance.decimals !== null && (
-                <div className="balance-display">
-                    <div>
-                        <strong>Symbol:</strong> {balance.symbol}
-                    </div>
-                    <div>
-                        <strong>Balance:</strong> {ethers.formatUnits(balance.value, parseInt(balance.decimals))}
-                    </div>
+        <div className="balance-display">
+            <h2>Holdings</h2>
+            <div className="fields-container">
+                <div>
+                    <strong>Name:</strong> <span className={status === 'loading' ? 'loading' : ''}>{name ? name : 'Token not selected'}</span>
                 </div>
-            )}
+                <div>
+                    <strong>Symbol:</strong> <span className={status === 'loading' ? 'loading' : ''}>{symbol ? symbol : 'Token not selected'}</span>
+                </div>
+                <div>
+                    <strong>Balance:</strong> <span className={status === 'loading' ? 'loading' : ''}>{value && decimals ? ethers.formatUnits(value, parseInt(decimals)) : 'Token not selected'}</span>
+                </div>
+            </div>
             {error && (
                 <div style={{ marginTop: "1rem", color: "red" }}>
                     Error: {error}
                 </div>
             )}
-        </>
+        </div>
     )
 }
 
