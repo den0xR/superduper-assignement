@@ -72,12 +72,12 @@ export const balancesSlice = createSlice({
             state.error = null;
         })
         builder.addCase(getBalance.rejected, (state: BalancesState) => {
-            
-
-
             state.value = null;
             state.status = 'failed';
             state.error = 'Failed to get balance';
+            state.decimals = null;
+            state.symbol = null;
+            state.name = null;
         })
         builder.addCase(getBalance.pending, (state: BalancesState) => {
             state.value = null;
