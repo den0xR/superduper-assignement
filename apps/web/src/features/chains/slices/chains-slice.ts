@@ -20,7 +20,7 @@ const initialState: ChainsState = {
 export const getChains = createAsyncThunk(
     'chains/getChains',
     async () => {
-        const response = await axios.get('http://localhost:3000/api/chains');
+        const response = await axios.get(`${import.meta.env.VITE_API_URL}/chains`);
 
         return response.data;
     }

@@ -36,7 +36,7 @@ export const getBalance = createAsyncThunk<BalanceResponseBody, GetBalanceParams
         const state = thunkAPI.getState() as RootState;
         const walletAddress = state.auth.walletAddress;
 
-        const response = await axios.post('http://localhost:3000/api/balance', {
+        const response = await axios.post(`${import.meta.env.VITE_API_URL}/balance`, {
             chainId: params.chainId,
             contractAddress: params.contractAddress,
             walletAddress: walletAddress

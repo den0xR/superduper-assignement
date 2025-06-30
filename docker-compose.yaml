@@ -1,0 +1,32 @@
+services:
+  postgres:
+    image: postgres:16
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5432:5432"
+  node-app:
+    build: ./apps/api
+    ports:
+      - "3000:3000"
+    environment:
+      NODE_ENV: development
+      DATABASE_USERNAME: "postgres"
+      DATABASE_PASSWORD: "postgres"
+      DATABASE_NAME: "superduper_dev"
+      DATABASE_DIALECT: "postgres"
+      DATABASE_HOST: "postgres"
+      API_APPLICATION_PORT: "3000"
+    depends_on:
+      - postgres
+  web-app:
+    build:
+      context: ./apps/web
+      dockerfile: Dockerfile
+      args:
+        - VITE_API_URL=http://localhost:3000/api
+    ports:
+      - "4173:4173"
+    depends_on:
+      - node-app

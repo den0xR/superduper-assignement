@@ -7,7 +7,7 @@
     "init-dev": "./src/bin/development/init-dev.sh",
     "drop-db": "sequelize db:drop",
     "dev": "./src/bin/development/run-dev.sh",
-    "build": "tsc && node ./dist/bin/www",
+    "build": "tsc; node ./dist/bin/start-server.js",
     "test": "./src/bin/testing/run-tests.sh"
   },
   "dependencies": {
