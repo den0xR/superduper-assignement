@@ -15,4 +15,5 @@ export interface Config {
   env: string;
   databaseConfig: DatabaseConfig;
   appConfig: AppConfig;
+  infuraApiKey: string;
 }

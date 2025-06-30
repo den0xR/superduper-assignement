@@ -13,7 +13,8 @@ const config: Config = {
   },
   appConfig: {
     port: process.env.API_APPLICATION_PORT,
-  }
+  },
+  infuraApiKey: process.env.INFURA_API_KEY,
 };
 
 export default config;

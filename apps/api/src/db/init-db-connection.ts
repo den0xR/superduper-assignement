@@ -1,5 +1,6 @@
 import { Sequelize, Dialect } from 'sequelize';
 import config from '../core/config';
+import { initBalanceModel } from '../features/balances/models/balances-model';
 
 interface SequelizeConnectionProps {
     database: string;
@@ -27,6 +28,10 @@ export class SequelizeConnection {
             ...dbConfig,
             logging
         });
+    }
+
+    setupModels() {
+        initBalanceModel(this.sequelize);
     }
 }
 

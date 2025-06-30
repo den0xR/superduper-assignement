@@ -6,7 +6,7 @@ export default {
         try {
             const chains = await ChainService.getChains();
 
-            res.json(chains);
+            return res.json(chains);
         } catch (e) {
             next(e);
         }
