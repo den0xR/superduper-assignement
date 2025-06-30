@@ -1,0 +1,36 @@
+.balance-checker-form {
+    width: 100%;
+
+    label {
+        color: #2d3748;
+    }
+
+    input,
+    select {
+        border: 1px solid #cbd5e0;
+        background-color: #ffffff;
+        color: #4a5568;
+
+        &:focus {
+            border-color: #4299e1;
+            box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.15);
+        }
+    }
+
+    .error {
+        color: #e53e3e;
+    }
+
+    button[type="submit"] {
+        background-color: #4299e1;
+        color: white;
+
+        &:hover {
+            background-color: #3182ce;
+        }
+
+        &:active {
+            background-color: #2b6cb0;
+        }
+    }
+}
