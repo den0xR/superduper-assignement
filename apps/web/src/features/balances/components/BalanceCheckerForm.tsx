@@ -1,6 +1,7 @@
 import { Formik, Form } from "formik";
 import * as Yup from "yup";
 import { useEffect } from 'react'
+import { isAddress } from "ethers";
 import { useAppSelector, useAppDispatch } from '../../../app/hooks'
 import { getChains } from '../../chains/slices/chains-slice'
 import { selectChains } from '../../chains/slices/chains-slice'
@@ -21,7 +22,13 @@ const initialValues: FormValues = {
 };
 
 const validationSchema = Yup.object({
-  textInput: Yup.string().required("*This field is required"),
+  textInput: Yup.string()
+    .required("*This field is required")
+    .test(
+      "is-eth-address",
+      "*Must be a valid Ethereum address",
+      (value) => (value ? isAddress(value) : false)
+    ),
   selectOption: Yup.string().required("*This field is required"),
 })
 
