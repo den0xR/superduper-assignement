@@ -32,6 +32,7 @@ html {
         height: 100%;
         display: flex;
         flex-direction: column;
+
         .main {
             width: 100%;
             display: flex;
@@ -39,7 +40,8 @@ html {
             align-items: center;
 
             .card {
-                width: 50%;
+                width: 90%;
+                margin: 1rem;
                 background-color: #ffffff;
                 border: 1px solid #e0e6ed;
                 display: flex;
@@ -56,6 +58,10 @@ html {
                 &__subheading {
                     padding: 0 2rem;
                     margin: 0;
+                }
+
+                @media (min-width: 768px) {
+                   width: 50%;
                 }
             }
         }

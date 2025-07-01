@@ -1,20 +1,23 @@
 .balance-display {
     .fields-container {
-        span {
-            transition: filter 0.3s ease-in-out;
-            display: inline-block;
+        transition: filter 0.3s ease-in-out;
 
-            &.loading {
-                filter: blur(4px);
-                pointer-events: none;
-            }
+        &.loading {
+            filter: blur(4px);
+            pointer-events: none;
         }
     }
-    width: 50%;
+
+    width: 90%;
+    margin: 1rem;
     display: flex;
     flex-direction: column;
     margin-top: 2rem;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
     background-color: #ffffff;
     padding: 1rem;
+
+    @media (min-width: 768px) {
+        width: 50%;
+    }
 }
